@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+.task{
+            width: fit-content;
+            padding: 10px;
+            background-color: violet;
+            border-radius: 10px;
+            padding: 100px;
+        }
+
+
+.task-input {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  margin-right: 5px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+}
+
+button {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+
+
+ul {
+  margin: 5px;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 3px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+button.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+button.delete-btn:hover {
+  background-color: #bd2130;
+}
+
+    </style>
+    <script>
+        function addtask(){
+        var inputtask=document.getElementById("inputtask");
+        var tasklist=document.getElementById("tasklist");
+
+        var newlist=document.createElement("li");
+
+        var tasktext=document.createElement("span");
+        var buttondelete=document.createElement("button");
+
+        tasktext.textContent=inputtask.value;
+     
+        buttondelete.textContent="❌";
+
+
+        newlist.appendChild(tasktext);
+        newlist.appendChild(buttondelete);
+
+        tasklist.appendChild(newlist);
+
+        buttondelete.onclick=function(){
+            tasklist.removeChild(newlist);
+        }
+        inputtask.value="";
+    }
+    </script>
+</head>
+<body>
+    
+    <div class="task">
+        <h1>Task Manager</h1>    
+        <input type="text" id="inputtask">
+        <button onclick="addtask()"> ADD Task</button>
+        <br>
+        <ul id="tasklist"> 
+
+        </ul>
+    </div>
+</body>
+</html>
